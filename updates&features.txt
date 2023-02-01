@@ -1,0 +1,11 @@
+Features :
+Available
+  - Command Segregation (use of -new, -h commands)
+Working
+  - Accepting longer Inputs
+  - Saving to file
+To Work On
+  - Giving File name with date
+  - Reading file name from date input (DD/MM/YY)
+  - Help Menu Design
+  - Simplified Password Functionality
