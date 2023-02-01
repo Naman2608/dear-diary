@@ -9,7 +9,7 @@ for Help = <object file> -h<br>
 Example ./a.out -h<br>
 =======
 For Writting in diary = <object file>  -new 
-Example ./a.out -new\n
+Example ./a.out -new
 For Help = <object file> -h
 Example ./a.out -h
 
