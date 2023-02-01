@@ -1,11 +1,13 @@
 Features :
 Available
-  - Command Segregation (use of -new, -h commands)
+  A1. Command Segregation (use of -new, -h commands)
 Working
-  - Accepting longer Inputs
-  - Saving to file
+  B1. Accepting longer Inputs
+  B2. Saving to file
 To Work On
-  - Giving File name with date
-  - Reading file name from date input (DD/MM/YY)
-  - Help Menu Design
-  - Simplified Password Functionality
+  C1. Giving File name with date
+  C2. Opening file from date input (DD/MM/YY)
+  C3. Help Menu Design
+  C4. Simplified Password Functionality
+Functions & Algorithm
+  - Text Matching (for C2 & C4)
