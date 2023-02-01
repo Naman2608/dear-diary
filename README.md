@@ -1,5 +1,5 @@
 # dear-diary
-A simple &amp; Elegant command line diary writtting software
+A simple &amp; Elegant CLI diary writtting software
 
 ## Description →
 For Writting in diary = <object file> -new<br> 
