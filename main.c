@@ -11,7 +11,7 @@ void add_entry(){
 	FILE *fp;
 	fgets(text,99,stdin);
 
-	fp= fopen("diary.txt","w");
+	fp= fopen("diary.txt","a+");
 	if (fp == NULL){
 		printf("Failed to Open the File, Please check the file name\n");
 		exit(0);
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[])
 		}
 	}
 	// Handling no arguments passed
-	if (argc <= 1) {
+	else {
 		printf("Please use '-h' for more information\n");
 	}
 	return 0;
