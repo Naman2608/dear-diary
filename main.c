@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "TimeString.h"
+
 // Versioned by Naman Chabbra
+
 
 // Create a new Entry
 void add_entry(){
 	char text[100];
 	printf("\nStart Writting...\n");
-	FILE *fp;
+    printf("\n%s\n",__DATE__);
+    FILE *fp;
 	fgets(text,99,stdin);
 
 	fp= fopen("diary.txt","a+");
