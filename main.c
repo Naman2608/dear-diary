@@ -27,7 +27,10 @@ void add_entry(){
 
 // Displaying Help Menu
 void help_menu(){
-	printf("\nWelcome to Help Menu\n");
+	printf("\nDear-Diary Help Menu\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+    printf("Usage : main <command>");
+    printf("\nAvailable Commands : \n");
+    printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry");
 }
 
 // Handling invalid arguments

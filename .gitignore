@@ -1,3 +1,4 @@
 *.out
+*.exe
 test.c
 diary.txt
