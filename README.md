@@ -1,5 +1,5 @@
 # Dear-Diary
-A simple &amp; Elegant CLI diary writting software with a clean & easy to use CLI Interface
+A simple &amp; Elegant CLI diary writting software with a clean & easy to use CLI Interface <br>
 Fork the repository to contribute in the development
 ## Usage
 main { -new | -h | -o }
