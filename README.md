@@ -1,10 +1,9 @@
-# dear-diary
-A simple &amp; Elegant CLI diary writting software
-
-## Description →
-For Writting in diary = <object file> -new<br> 
-Example ./a.out -new<br>
-for Help = <object file> -h<br>
-Example ./a.out -h<br>
-by 
-Ashu and Naman
+# Dear-Diary
+A simple &amp; Elegant CLI diary writting software with a clean & easy to use CLI Interface <br>
+Fork the official [repository](https://github.com/Naman2608/diary) to contribute in the development
+## Usage
+main { -new | -h | -o }
+## Commands
+-new : Create a New Diary Entry <br>
+-h : Open Help Menu <br>
+-o : Open an old Diary Entry <br>

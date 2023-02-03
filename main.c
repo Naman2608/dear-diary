@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "TimeString.h"
+
 // Versioned by Naman Chabbra
+
 
 // Create a new Entry
 void add_entry(){
 	char text[100];
 	printf("\nStart Writting...\n");
-	FILE *fp;
+    printf("\n%s\n",__DATE__);
+    FILE *fp;
 	fgets(text,99,stdin);
 
 	fp= fopen("diary.txt","a+");
@@ -23,7 +27,10 @@ void add_entry(){
 
 // Displaying Help Menu
 void help_menu(){
-	printf("\nWelcome to Help Menu\n");
+	printf("\nDear-Diary Help Menu\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+    printf("Usage : main <command>");
+    printf("\nAvailable Commands : \n");
+    printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry");
 }
 
 // Handling invalid arguments
