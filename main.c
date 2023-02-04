@@ -9,11 +9,37 @@
 // Create a new Entry
 void add_entry()
 {
-	char text[100];
-	printf("\nStart Writting...\n");
-	printf("\n%s\n", __DATE__);
 	FILE *fp;
-	fgets(text, 99, stdin);
+	int n = 1, i = 0;
+	char **text;					   // 2D array
+	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
+
+	char terminate[] = "exit()\n"; // Termination array for exit diary writing
+	printf("\nStart Writting...\n");
+	const char *currentDate = __DATE__;
+	printf("\n%s\n", currentDate);
+
+	for (i = 0; i < n; i++)
+	{
+		text[i] = malloc(100 * sizeof(char));
+
+		fgets(text[i], 100, stdin);
+
+		if (strcmp(text[i], terminate) == 0)
+		{
+			break;
+		}
+		if (i >= n - 1)
+		{
+			n++;
+			text = realloc(text, (n + 1) * sizeof(char *));
+		}
+	}
+	if (text == NULL)
+	{
+		printf("Error: out of memory ...\n");
+		exit(1);
+	}
 
 	fp = fopen("diary.txt", "a+");
 	if (fp == NULL)
@@ -21,8 +47,12 @@ void add_entry()
 		printf("Failed to Open the File, Please check the file name\n");
 		exit(0);
 	}
+	fputs(currentDate, fp);
+	for (int i = 0; i < n - 1; i++)
+	{
+		fputs(text[i], fp);
+	}
 
-	fputs(text, fp);
 	fclose(fp);
 }
 
