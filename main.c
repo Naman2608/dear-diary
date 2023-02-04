@@ -5,31 +5,34 @@
 
 // Versioned by Naman Chabbra
 
-
+// Created by Ashu
 // Create a new Entry
-void add_entry(){
+void add_entry()
+{
 	char text[100];
 	printf("\nStart Writting...\n");
-    printf("\n%s\n",__DATE__);
-    FILE *fp;
-	fgets(text,99,stdin);
+	printf("\n%s\n", __DATE__);
+	FILE *fp;
+	fgets(text, 99, stdin);
 
-	fp= fopen("diary.txt","a+");
-	if (fp == NULL){
+	fp = fopen("diary.txt", "a+");
+	if (fp == NULL)
+	{
 		printf("Failed to Open the File, Please check the file name\n");
 		exit(0);
 	}
 
-	fputs(text,fp);
+	fputs(text, fp);
 	fclose(fp);
 }
 
 // Displaying Help Menu
-void help_menu(){
+void help_menu()
+{
 	printf("\nDear-Diary Help Menu\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
-    printf("Usage : main <command>");
-    printf("\nAvailable Commands : \n");
-    printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry");
+	printf("Usage : main <command>");
+	printf("\nAvailable Commands : \n");
+	printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry");
 }
 
 // Handling invalid arguments
@@ -41,27 +44,32 @@ void invalid_args()
 int main(int argc, char const *argv[])
 {
 	// int i = 0;
-	if(argc > 1) {
-		printf("%d Argument(s) Recieved,\n", argc-1); // Checking the Arguments
+	if (argc > 1)
+	{
+		printf("%d Argument(s) Recieved,\n", argc - 1); // Checking the Arguments
 		for (int i = 1; i < argc; i++)
 		{
 			printf("Argument %d : %s\n", i, argv[i]);
 			// Redirecting to help menu
-			if(! strcmp(argv[i], "-h")) {
+			if (!strcmp(argv[i], "-h"))
+			{
 				help_menu();
 			}
-				// Redirecting to New Entry
-			else if(! strcmp(argv[i], "-new")) {
+			// Redirecting to New Entry
+			else if (!strcmp(argv[i], "-new"))
+			{
 				add_entry();
 			}
-				// Handling any other argument entered other than above
-			else {
+			// Handling any other argument entered other than above
+			else
+			{
 				invalid_args();
 			}
 		}
 	}
 	// Handling no arguments passed
-	else {
+	else
+	{
 		printf("Please use '-h' for more information\n");
 	}
 	return 0;
