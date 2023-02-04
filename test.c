@@ -6,7 +6,7 @@ char **dstr_read()
 
 {
 
-    int n=10,i = 0;
+    int n=1,i = 0;
 
  //   scanf("%*[\n]"); 
     /*this will read the \n in stdin and not store it anywhere. So the next call to 
@@ -18,7 +18,7 @@ char **dstr_read()
 
     for(i = 0; i < n; i++)
     {
-       str[i] = malloc(100 * sizeof(char));
+       str[i] = malloc(1 * sizeof(char));
 
 	fgets(str[i],100,stdin);
 	printf("%s",str[i]);
@@ -27,6 +27,10 @@ char **dstr_read()
         if (a==0){
 		printf("????????");
 		break;
+	}
+        if (i>=n-1){
+		n++;
+		str=realloc(str,(n+1)*sizeof(char *));
 	}
     }
     if (str == NULL) {
