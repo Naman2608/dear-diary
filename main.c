@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "TimeString.h"
+#include "TimeString.h"
 
-// Versioned by Naman Chabbra
+getTheTime();
 
-// Created by Ashu
+
 // Create a new Entry
 void add_entry()
 {
@@ -79,6 +79,7 @@ void invalid_args()
 
 int main(int argc, char const *argv[])
 {
+    printf("THE TIME IS : %s", DD_Str);
 	// int i = 0;
 	if (argc > 1)
 	{

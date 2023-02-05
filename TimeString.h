@@ -7,7 +7,7 @@
 #endif // DEAREST_DIARY_TIMESTRING_H
 
 int DD,MM,YY;
-char DD_Str[20];
+char DD_Str[12];
 
 // Get Time String
 void getTheTime()
