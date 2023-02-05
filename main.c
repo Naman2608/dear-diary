@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "TimeString.h"
+//#include "TimeString.h"
 
 // Versioned by Naman Chabbra
 
@@ -10,16 +10,22 @@
 void add_entry()
 {
 	FILE *fp;
-	int n = 1, i = 0;
+	int n = 3, i = 0;
 	char **text;					   // 2D array
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 	printf("\nStart Writting...\n");
-	const char *currentDate = __DATE__;
+        char *currentDate = __DATE__;
 	printf("\n%s\n", currentDate);
+	text[0] = malloc(10 * sizeof(char));
+	text[0]= currentDate;
+//	char line[]="\n";
+	text[1] = malloc(2 * sizeof(char)); 
+        text[1] = "\n";
 
-	for (i = 0; i < n; i++)
+//	strcat(currentDate,line);
+	for (i = 2; i < n; i++)
 	{
 		text[i] = malloc(100 * sizeof(char));
 
@@ -47,9 +53,9 @@ void add_entry()
 		printf("Failed to Open the File, Please check the file name\n");
 		exit(0);
 	}
-	fputs(currentDate, fp);
-	for (int i = 1; i < n - 1; i++)
+	for (int i = 0; i < n - 1; i++)
 	{
+		
 		fputs(text[i], fp);
 	}
 
