@@ -21,8 +21,8 @@ char **dstr_read()
       str[i] = malloc(1 * sizeof(char));
 
       fgets(str[i], 100, stdin);
-       
-      if ( strcmp(str[i], terminate) == 0)
+
+      if (strcmp(str[i], terminate) == 0)
       {
          break;
       }
@@ -48,12 +48,16 @@ int main()
 
 {
 
-   char **content;
+   // char **content;
 
-   printf("Start writing here ----\n");
-   content = dstr_read();
-   printf("-------------------------------------%s", content[0]);
-   free(content);
+   // printf("Start writing here ----\n");
+   // content = dstr_read();
+   // printf("-------------------------------------%s", content[0]);
+   // free(content);
+   FILE *fp;
+   const char *currentDate = __DATE__;
+   fp = fopen("diary.txt", "a+");
+   fputs(currentDate, fp);
 
    return 0;
 }
