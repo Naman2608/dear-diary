@@ -7,7 +7,7 @@
 #endif // DEAREST_DIARY_TIMESTRING_H
 
 int DD,MM,YY;
-char DD_Str[20];
+char DD_Str[12];
 
 // Get Time String
 void getTheTime()
@@ -20,5 +20,4 @@ void getTheTime()
     YY = tm.tm_year+1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
 
     sprintf(DD_Str, "%d-%d-%d", DD, MM, YY);
-    printf("%s", DD_Str);
 }
