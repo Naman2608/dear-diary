@@ -48,7 +48,6 @@ void add_entry()
 		exit(0);
 	}
 	fputs(currentDate, fp);
-	fp++;
 	for (int i = 1; i < n - 1; i++)
 	{
 		fputs(text[i], fp);
