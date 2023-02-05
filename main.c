@@ -14,10 +14,10 @@ void add_entry()
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 	printf("\nStart Writting...\n");
-        char *currentDate = __DATE__;
-	printf("\n%s\n", currentDate);
+    //    char *currentDate = __DATE__;
+	printf("\n%s\n", DD_Str);
 	text[0] = malloc(10 * sizeof(char));
-	text[0]= currentDate;
+	text[0]= DD_Str;
 //	char line[]="\n";
 	text[1] = malloc(2 * sizeof(char)); 
         text[1] = "\n";
@@ -78,7 +78,7 @@ void invalid_args()
 int main(int argc, char const *argv[])
 {
 	getTheTime();
-    printf("THE TIME IS : %s\n", DD_Str);
+   // printf("THE TIME IS : %s\n", DD_Str);
 	// int i = 0;
 	if (argc > 1)
 	{
