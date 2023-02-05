@@ -20,5 +20,4 @@ void getTheTime()
     YY = tm.tm_year+1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
 
     sprintf(DD_Str, "%d-%d-%d", DD, MM, YY);
-    printf("%s", DD_Str);
 }

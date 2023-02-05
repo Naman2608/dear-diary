@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "TimeString.h"
-
-getTheTime();
-
 
 // Create a new Entry
 void add_entry()
@@ -79,7 +77,8 @@ void invalid_args()
 
 int main(int argc, char const *argv[])
 {
-    printf("THE TIME IS : %s", DD_Str);
+	getTheTime();
+    printf("THE TIME IS : %s\n", DD_Str);
 	// int i = 0;
 	if (argc > 1)
 	{
