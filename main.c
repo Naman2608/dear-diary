@@ -80,6 +80,7 @@ void invalid_args()
 
 int main(int argc, char const *argv[])
 {
+    int tm_isdst;   /* Daylight Savings Time flag */
 	getTheTime();
    // printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
@@ -109,7 +110,8 @@ int main(int argc, char const *argv[])
 	// Handling no arguments passed
 	else
 	{
-				help_menu();
+	    printf("tm_isdst %d-> ", tm_isdst);
+		help_menu();
 		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
 	
 	}
