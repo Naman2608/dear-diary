@@ -2,3 +2,6 @@
 *.exe
 ?-?-202[1-9]
 .idea
+main
+test
+exps

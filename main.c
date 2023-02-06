@@ -14,17 +14,15 @@ void add_entry()
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 	printf("\nStart Writting...");
-    char Date_Time[50];
-	sprintf(Date_Time,"\n%s\n@%s\nDear Diary,",DD_Str, TT_Str);
-	printf("\n%s\n", Date_Time);    
+	// Just Storing Time and a line break as default for every file ------>
+	char Date_Time[50];
+	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,", DD_Str, TT_Str);
+	printf("\n%s\n", Date_Time);
 	text[0] = malloc(10 * sizeof(char));
-       // strcat(DD_Str,TT_Str);
-	text[0]= Date_Time;
-//	char line[]="\n";
-	text[1] = malloc(2 * sizeof(char)); 
-        text[1] = "\n";
-
-//	strcat(currentDate,line);
+	text[0] = Date_Time;
+	text[1] = malloc(2 * sizeof(char));
+	text[1] = "\n";
+	// --------------------------------------------------------------------<
 	for (i = 2; i < n; i++)
 	{
 		text[i] = malloc(100 * sizeof(char));
@@ -55,7 +53,7 @@ void add_entry()
 	}
 	for (int i = 0; i < n - 1; i++)
 	{
-		
+
 		fputs(text[i], fp);
 	}
 
@@ -80,9 +78,9 @@ void invalid_args()
 
 int main(int argc, char const *argv[])
 {
-    int tm_isdst;   /* Daylight Savings Time flag */
+	int tm_isdst; /* Daylight Savings Time flag */
 	getTheTime();
-   // printf("THE TIME IS : %s\n", TT_Str);
+	// printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
 	if (argc > 1)
 	{
@@ -110,11 +108,9 @@ int main(int argc, char const *argv[])
 	// Handling no arguments passed
 	else
 	{
-	    printf("tm_isdst %d-> ", tm_isdst);
+		printf("tm_isdst %d-> ", tm_isdst);
 		help_menu();
 		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
-	
 	}
 	return 0;
 }
-
