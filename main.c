@@ -13,9 +13,9 @@ void add_entry()
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
-	printf("\nStart Writting...\n");
+	printf("\nStart Writting...");
     char Date_Time[50];
-	sprintf(Date_Time,"\n%s\t%s\n",DD_Str, TT_Str);
+	sprintf(Date_Time,"\n%s\n@%s\nDear Diary,",DD_Str, TT_Str);
 	printf("\n%s\n", Date_Time);    
 	text[0] = malloc(10 * sizeof(char));
        // strcat(DD_Str,TT_Str);
