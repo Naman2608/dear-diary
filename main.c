@@ -13,11 +13,13 @@ void add_entry()
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
-	printf("\nStart Writting...\n");
-    //    char *currentDate = __DATE__;
-	printf("\n%s\n", DD_Str);
+	printf("\nStart Writting...");
+    char Date_Time[50];
+	sprintf(Date_Time,"\n%s\n@%s\nDear Diary,",DD_Str, TT_Str);
+	printf("\n%s\n", Date_Time);    
 	text[0] = malloc(10 * sizeof(char));
-	text[0]= DD_Str;
+       // strcat(DD_Str,TT_Str);
+	text[0]= Date_Time;
 //	char line[]="\n";
 	text[1] = malloc(2 * sizeof(char)); 
         text[1] = "\n";
@@ -45,7 +47,7 @@ void add_entry()
 		exit(1);
 	}
 
-	fp = fopen("diary.txt", "a+");
+	fp = fopen(DD_Str, "a+");
 	if (fp == NULL)
 	{
 		printf("Failed to Open the File, Please check the file name\n");
@@ -59,14 +61,15 @@ void add_entry()
 
 	fclose(fp);
 }
+// Opening Diary
 
 // Displaying Help Menu
 void help_menu()
 {
-	printf("\nDear-Diary Help Menu\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+	printf("\nDear-Diary Help Menu ~~~~~~~~\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
 	printf("Usage : main <command>");
 	printf("\nAvailable Commands : \n");
-	printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry");
+	printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry\n");
 }
 
 // Handling invalid arguments
@@ -78,7 +81,7 @@ void invalid_args()
 int main(int argc, char const *argv[])
 {
 	getTheTime();
-   // printf("THE TIME IS : %s\n", DD_Str);
+   // printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
 	if (argc > 1)
 	{
@@ -106,7 +109,10 @@ int main(int argc, char const *argv[])
 	// Handling no arguments passed
 	else
 	{
-		printf("Please use '-h' for more information\n");
+				help_menu();
+		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
+	
 	}
 	return 0;
 }
+
