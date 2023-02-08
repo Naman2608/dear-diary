@@ -13,21 +13,28 @@ char TT_Str[12];
 // Get Time String
 void getTheTime()
 {
-    struct tm tm;
-    time_t t;
-    time_t utc = timegm(&t);
+    // struct tm tm;
+    // time_t t;
+    // time_t utc = timegm(&t);
 
-    localtime_r(&utc, &t);
-    setenv("TZ", "GMTGMT-1,M3.4.0/01,M10.4.0/02", 1);
+    // localtime_r(&utc, &t);
+    // setenv("TZ", "GMTGMT-1,M3.4.0/01,M10.4.0/02", 1);
+    // tzset();
+    // t = time(NULL);
+    time_t rawtime;
+    struct tm *tm;
+    time(&rawtime);
+    tm = localtime(&rawtime);
+    setenv("TZ", "IST-05:30:00", 1);
     tzset();
-    t = time(NULL);
+    printf("Current local time and date: %s", asctime(tm));
     // storing the date/month/and year to a structure
-    DD = tm.tm_mday,            // The Current Date
-        MM = tm.tm_mon + 1,     // Here 0 = January and 11 = December, so an increment is made to get the dateString
-        YY = tm.tm_year + 1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
-    TH = tm.tm_hour;
-    TM = tm.tm_min;
-    TS = tm.tm_sec;
+    DD = tm->tm_mday,            // The Current Date
+    MM = tm->tm_mon + 1,     // Here 0 = January and 11 = December, so an increment is made to get the dateString
+    YY = tm->tm_year + 1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
+    TH = tm->tm_hour;
+    TM = tm->tm_min;
+    TS = tm->tm_sec;
     sprintf(DD_Str, "%d-%d-%d", DD, MM, YY);
     sprintf(TT_Str, "%d:%d:%d", TH, TM, TS);
 }

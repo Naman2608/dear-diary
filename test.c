@@ -32,26 +32,26 @@
 //    return 0;
 // }
 
-// /* localtime example */
-// #include <stdio.h>
-// #include <time.h>
+/* localtime example */
+#include <stdio.h>
+#include <time.h>
 
-// int main()
-// {
-//    time_t rawtime;
-//    struct tm *timeinfo;
+int main()
+{
+   time_t rawtime;
+   struct tm *timeinfo;
 
-//    time(&rawtime);
-//    timeinfo = localtime(&rawtime);
-//    printf("Current local time and date: %s", asctime(timeinfo));
-//    int tz;
-//    setenv("TZ", "GMTGMT-1,M3.4.0/01,M10.4.0/02", 1);
-//    tzset();
+   time(&rawtime);
+   timeinfo = localtime(&rawtime);
+   printf("Current local time and date: %s", asctime(timeinfo));
+   int tz;
+   setenv("TZ", "GMTGMT-1,M3.4.0/01,M10.4.0/02", 1);
+   tzset();
 
-//    tz = getenv("TZ");
-//    printf("%d", tz);
-//    return 0;
-// }
+   tz = getenv("TZ");
+   printf("%d", tz);
+   return 0;
+}
 #define _POSIX_SOURCE
 // #include <env.h>
 #include <stdio.h>
