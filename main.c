@@ -9,8 +9,8 @@ void add_entry()
 {
 	FILE *fp;
 	int n = 3, i = 0;
-	char **text;					   // 2D array
-	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
+	char *text; // 2D array
+	// text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 	printf("\nStart Writting...");
@@ -18,27 +18,32 @@ void add_entry()
 	char Date_Time[50];
 	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,", DD_Str, TT_Str);
 	printf("\n%s\n", Date_Time);
-	text[0] = malloc(10 * sizeof(char));
-	text[0] = Date_Time;
-	text[1] = malloc(2 * sizeof(char));
-	text[1] = "\n";
+	// text[0] = malloc(10 * sizeof(char));
+	// text[0] = Date_Time;
+	// text[1] = malloc(2 * sizeof(char));
+	// text[1] = "\n";
 	// --------------------------------------------------------------------<
-	for (i = 2; i < n; i++)
-	{
-		text[i] = malloc(100 * sizeof(char));
+	// for (i = 2; i < n; i++)
+	// {
+	text = malloc(1000 * sizeof(char));
 
-		fgets(text[i], 100, stdin);
+	// 	fgets(text[i], 100, stdin);
 
-		if (strcmp(text[i], terminate) == 0)
-		{
-			break;
-		}
-		if (i >= n - 1)
-		{
-			n++;
-			text = realloc(text, (n + 1) * sizeof(char *));
-		}
-	}
+	// 	if (strcmp(text[i], terminate) == 0)
+	// 	{
+	// 		break;
+	// 	}
+	// 	if (i >= n - 1)
+	// 	{
+	// 		n++;
+	// 		text = realloc(text, (n + 1) * sizeof(char *));
+	// 	}
+	// }
+
+	printf("Enter a multi line string( press ';' to end input)\n");
+	scanf("%[^;]s", text);
+
+	printf("Input String = %s", text);
 	if (text == NULL)
 	{
 		printf("Error: out of memory ...\n");
@@ -54,7 +59,7 @@ void add_entry()
 	for (int i = 0; i < n - 1; i++)
 	{
 
-		fputs(text[i], fp);
+		fputs(text, fp);
 	}
 
 	fclose(fp);
