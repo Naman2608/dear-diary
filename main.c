@@ -60,7 +60,27 @@ void add_entry()
 	fclose(fp);
 }
 // Opening Diary
+void open_Diary(void)
+{
+	char *file_name;
+	printf("Enter the date of Dairy like DD-MM-YY (23-4-2023) \n");
+	scanf("%s", file_name);
 
+	FILE *file = fopen(file_name, "r");
+	if (file == NULL)
+	{
+		printf("%s\n", "No Dairy exist");
+	}
+	else
+	{
+		char c;
+		while ((c = fgetc(file)) != EOF) //Read the file contents and print them.
+		{
+			printf("%c", c);
+		}
+	}
+	fclose(file);
+}
 // Displaying Help Menu
 void help_menu()
 {
@@ -97,6 +117,11 @@ int main(int argc, char const *argv[])
 			else if (!strcmp(argv[i], "-new"))
 			{
 				add_entry();
+			}
+			// Opening the diary
+			else if (!strcmp(argv[i], "-o"))
+			{
+				open_Diary();
 			}
 			// Handling any other argument entered other than above
 			else
