@@ -30,11 +30,37 @@ void getTheTime()
     printf("Current local time and date: %s", asctime(tm));
     // storing the date/month/and year to a structure
     DD = tm->tm_mday,            // The Current Date
-    MM = tm->tm_mon + 1,     // Here 0 = January and 11 = December, so an increment is made to get the dateString
-    YY = tm->tm_year + 1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
+        MM = tm->tm_mon + 1,     // Here 0 = January and 11 = December, so an increment is made to get the dateString
+        YY = tm->tm_year + 1900; // This returns the total number of years since 1900, so adding 1900 will get the current dateString
     TH = tm->tm_hour;
     TM = tm->tm_min;
     TS = tm->tm_sec;
-    sprintf(DD_Str, "%d-%d-%d", DD, MM, YY);
+    char cDD[4], cMM[4];
+    sprintf(cDD, "%d%d", 0, DD);
+    sprintf(cMM, "%d%d", 0, MM);
+    if (DD < 10 && MM < 10)
+    {
+
+        sprintf(DD_Str, "%s-%s-%d", cDD, cMM, YY);
+    }
+
+    else if (DD < 10 || MM < 10)
+    {
+        if (DD < 10)
+        {
+
+            sprintf(DD_Str, "%s-%d-%d", cDD, MM, YY);
+        }
+        if (MM < 10)
+        {
+
+            sprintf(DD_Str, "%d-%s-%d", DD, cMM, YY);
+        }
+    }
+    else
+    {
+        sprintf(DD_Str, "%d-%d-%d", DD, MM, YY);
+    }
+
     sprintf(TT_Str, "%d:%d:%d", TH, TM, TS);
 }

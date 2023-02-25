@@ -8,16 +8,17 @@
 void add_entry()
 {
 	FILE *fp;
-	int n = 3, i = 0;
-	char *text; // 2D array
+	// int n = 3;
+	int i = 0;
+	// char *text; // 2D array
 	// text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
-	char terminate[] = "exit()\n"; // Termination array for exit diary writing
+	// char terminate[] = "exit()\n"; // Termination array for exit diary writing
 	printf("\nStart Writting...");
 	// Just Storing Time and a line break as default for every file ------>
 	char Date_Time[50];
-	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,", DD_Str, TT_Str);
-	printf("\n%s\n", Date_Time);
+	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,\n\n", DD_Str, TT_Str);
+	printf("%s\n", Date_Time);
 	// text[0] = malloc(10 * sizeof(char));
 	// text[0] = Date_Time;
 	// text[1] = malloc(2 * sizeof(char));
@@ -25,7 +26,7 @@ void add_entry()
 	// --------------------------------------------------------------------<
 	// for (i = 2; i < n; i++)
 	// {
-	text = malloc(1000 * sizeof(char));
+	// text = malloc(1000 * sizeof(char));
 
 	// 	fgets(text[i], 100, stdin);
 
@@ -41,10 +42,13 @@ void add_entry()
 	// }
 
 	printf("Enter a multi line string( press ';' to end input)\n");
-	scanf("%[^;]s", text);
+	// scanf("%[^;]s", text);
+	size_t n = 10;
+	char *buf = NULL;
+	getdelim(&buf, &n, '\;', stdin);
 
-	printf("Input String = %s", text);
-	if (text == NULL)
+	// printf("Input String = %s", text);
+	if (buf == NULL)
 	{
 		printf("Error: out of memory ...\n");
 		exit(1);
@@ -56,11 +60,11 @@ void add_entry()
 		printf("Failed to Open the File, Please check the file name\n");
 		exit(0);
 	}
-	for (int i = 0; i < n - 1; i++)
-	{
-
-		fputs(text, fp);
-	}
+	// for (int i = 0; i < n - 1; i++)
+	// {
+	fputs(Date_Time, fp);
+	fputs(buf, fp);
+	// }
 
 	fclose(fp);
 }
@@ -79,7 +83,7 @@ void open_Diary(void)
 	else
 	{
 		char c;
-		while ((c = fgetc(file)) != EOF) //Read the file contents and print them.
+		while ((c = fgetc(file)) != EOF) // Read the file contents and print them.
 		{
 			printf("%c", c);
 		}
