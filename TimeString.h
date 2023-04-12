@@ -25,7 +25,7 @@ void getTheTime()
     struct tm *tm;
     time(&rawtime);
     tm = localtime(&rawtime);
-    setenv("TZ", "IST-05:30:00", 1);
+    // setenv("TZ", "IST-05:30:00", 1);
     tzset();
     printf("Current local time and date: %s", asctime(tm));
     // storing the date/month/and year to a structure
