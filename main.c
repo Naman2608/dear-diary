@@ -63,7 +63,7 @@ void add_entry()
 void open_Diary(void)
 {
 	char *file_name;
-	printf("Enter the date of Dairy like DD-MM-YY (23-4-2023) \n");
+	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
 
 	FILE *file = fopen(file_name, "r");
