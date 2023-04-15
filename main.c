@@ -1,13 +1,18 @@
+/*
+	main.c
+	Works as an Entry Point for the Application
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "TimeString.h"
+#include "TimeString.h" // To Get the Current Time in a String
 
 // Create a new Entry
 void add_entry()
 {
-	FILE *fp;
+	FILE *fp; // file pointer
 	int n = 3, i = 0;
 	char **text;					   // 2D array
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
@@ -84,10 +89,10 @@ void open_Diary(void)
 // Displaying Help Menu
 void help_menu()
 {
-	printf("\nDear-Diary Help Menu ~~~~~~~~\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
-	printf("Usage : main <command>");
+	printf("\n\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+	printf("\nUsage :\n\t main <command>\n");
 	printf("\nAvailable Commands : \n");
-	printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry\n");
+	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
 }
 
 // Handling invalid arguments
@@ -133,9 +138,8 @@ int main(int argc, char const *argv[])
 	// Handling no arguments passed
 	else
 	{
-		printf("tm_isdst %d-> ", tm_isdst);
 		help_menu();
-		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
+		printf("\n---------------------------------------------\nPlease use '-new' to create a new Diary Entry\n---------------------------------------------\n");
 	}
 	return 0;
 }
