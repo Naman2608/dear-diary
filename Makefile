@@ -1,5 +1,9 @@
-main: main.c
-	gcc main.c -o main
 
-exps: exps.c
-	gcc exps.c -o exps
+COMP  = gcc
+APP = main
+
+${APP}: ${APP}.c
+	${COMP} ${APP}.c -o ${APP} 
+
+clear: 
+	rm ${APP}
