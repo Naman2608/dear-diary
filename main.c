@@ -1,8 +1,13 @@
+/*
+	main.c
+	Works as an Entry Point for the Application
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "TimeString.h"
+#include "TimeString.h" // To Get the Current Time in a String
 
 void open_Diary(void);
 void help_menu();
@@ -68,7 +73,7 @@ void encription(char ** text,int n){
 // Create a new Entry
 void add_entry()
 {
-	FILE *fp;                 // FILE structure type pointer
+	FILE *fp; // FILE structure type pointer
 	int n = 3, i = 0;
 	char **text;		      // 2D array
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
@@ -142,7 +147,7 @@ void add_entry()
 void open_Diary(void)
 {
 	char *file_name;
-	printf("Enter the date of Dairy like DD-MM-YY (23-4-2023) \n");
+	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
 
 	FILE *file = fopen(file_name, "r");
@@ -163,10 +168,10 @@ void open_Diary(void)
 // Displaying Help Menu
 void help_menu()
 {
-	printf("\nDear-Diary Help Menu ~~~~~~~~\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
-	printf("Usage : main <command>");
+	printf("\n\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+	printf("\nUsage :\n\t main <command>\n");
 	printf("\nAvailable Commands : \n");
-	printf("-new : Create a New Diary Entry\n-h : Open Help Menu\n-o : Open an old Diary Entry\n");
+	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
 }
 
 // Handling invalid arguments
@@ -175,3 +180,45 @@ void invalid_args()
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
 }
 
+int main(int argc, char const *argv[])
+{
+	int tm_isdst; /* Daylight Savings Time flag */
+	getTheTime();
+	// printf("THE TIME IS : %s\n", TT_Str);
+	// int i = 0;
+	if (argc > 1)
+	{
+		printf("%d Argument(s) Recieved,\n", argc - 1); // Checking the Arguments
+		for (int i = 1; i < argc; i++)
+		{
+			printf("Argument %d : %s\n", i, argv[i]);
+			// Redirecting to help menu
+			if (!strcmp(argv[i], "-h"))
+			{
+				help_menu();
+			}
+			// Redirecting to New Entry
+			else if (!strcmp(argv[i], "-new"))
+			{
+				add_entry();
+			}
+			// Opening the diary
+			else if (!strcmp(argv[i], "-o"))
+			{
+				open_Diary();
+			}
+			// Handling any other argument entered other than above
+			else
+			{
+				invalid_args();
+			}
+		}
+	}
+	// Handling no arguments passed
+	else
+	{
+		help_menu();
+		printf("\n---------------------------------------------\nPlease use '-new' to create a new Diary Entry\n---------------------------------------------\n");
+	}
+	return 0;
+}
