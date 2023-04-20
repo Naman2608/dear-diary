@@ -18,7 +18,7 @@ void encription(char **,int);
 // Program Starts from here ---
 int main(int argc, char const *argv[])
 {
-	int tm_isdst;   /* Daylight Savings Time flag */
+	int tm_isdst;   // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
@@ -180,9 +180,9 @@ void invalid_args()
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
 }
 
-int main(int argc, char const *argv[])
+/*int main(int argc, char const *argv[])
 {
-	int tm_isdst; /* Daylight Savings Time flag */
+	int tm_isdst; // Daylight Savings Time flag
 	getTheTime();
 	// printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
@@ -222,3 +222,4 @@ int main(int argc, char const *argv[])
 	}
 	return 0;
 }
+*/
