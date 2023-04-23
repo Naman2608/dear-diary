@@ -13,15 +13,18 @@ void open_Diary(void);
 void help_menu();
 void add_entry();
 void invalid_args();
-void encription(char **,int);
 
 // Program Starts from here ---
 int main(int argc, char const *argv[])
 {
+
 	int tm_isdst;   // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
 	// int i = 0;
+
+	FILE *fp;
+
 	if (argc > 1)
 	{
 		printf("%d Argument(s) Recieved,\n", argc - 1); // Checking the Arguments
@@ -60,27 +63,17 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
-
-void encription(char ** text,int n){
-	for (int i = 0; i<n; i++)
-	{
-		for (int j = 0;text[i][j]!='\0'; j++)
-		{
-			text[i][j]=text[i][j]+3;
-		}
-	}
-}
 // Create a new Entry
 void add_entry()
 {
-	FILE *fp; // FILE structure type pointer
+	FILE *fp; // FILE structure type pointer store all the related data of file
 	int n = 3, i = 0;
 	char **text;		      // 2D array
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 
-	printf("\nStart Writting...");
+	printf("\nStart Writting...\nfor Exit type exit()\n");
 	// Just Storing Time and a line break as default for every file ------>
 	char Date_Time[50];
 	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,\n", DD_Str, TT_Str);
@@ -131,7 +124,7 @@ void add_entry()
 	if (fp == NULL)
 	{
 		printf("Failed to Open the File, Please check the file name\n");
-		exit(0);
+		exit(1); // A non zero value in exit means abnormal termination of program
 	}
 
      // copying content of text to file
@@ -140,7 +133,7 @@ void add_entry()
 
 		fputs(text[i], fp);
 	}
-     // closing file
+     // closing file the buffer assosited with file is removed from the memory
 	fclose(fp);
 }
 // Opening Diary
@@ -150,20 +143,21 @@ void open_Diary(void)
 	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
 
-	FILE *file = fopen(file_name, "r");
-	if (file == NULL)
+	FILE *fp = fopen(file_name, "r+");
+	if (fp == NULL)
 	{
-		printf("%s\n", "No Dairy exist");
+		printf("No Dairy exist");
+		exit(1);
 	}
 	else
 	{
 		char c;
-		while ((c = fgetc(file)) != EOF) //Read the file contents and print them.
+		while ((c = fgetc(fp)) != EOF) //Read the file contents from buffer untill EOF(macro) encontered.
 		{
 			printf("%c", c-3); // c-3 for decription
 		}
 	}
-	fclose(file);
+	fclose(fp);
 }
 // Displaying Help Menu
 void help_menu()
