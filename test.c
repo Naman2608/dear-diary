@@ -2,23 +2,37 @@
 
 int main(){
 
-
-	char text[2][9];
-	int n=2;
-
-
-    for (int i = 0; i < n; ++i)
-    {
-    	gets(text[i]);
-    }
-
-     for (int i = 0; i<n; ++i)
+char chh;
+    FILE *fp = fopen("etc/status.txt","r");
+    if (fp == NULL)
 	{
-		for (int j = 0;text[i][j]!='\0'; ++j)
-		{
-			text[i][j]=text[i][j]+3;
-			printf("%c",text[i][j]);
+		printf("No File exist");
+		exit(1);
+	}
+	while(1){
+		chh = fgetc(fp);
+		if(chh == '0' || chh == '1'){
+			break;
 		}
+		if (chh == EOF){
+			exit(1);
+		}
+
+	}
+	fclose(fp);
+    
+	if (chh == '0'){
+
+		printf("%c",chh);
+
+	}
+	else if(chh=='1'){
+
+		printf("%c",chh);
+		
+	}
+	else{
+		exit(1);
 	}
 
 
