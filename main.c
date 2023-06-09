@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <time.h>
 #include "TimeString.h" // To Get the Current Time in a String
@@ -13,6 +14,9 @@ void open_Diary(void);
 void help_menu();
 void add_entry();
 void invalid_args();
+void set_Pass();
+int check_pass_status ( void );
+int Authentication(char *);
 
 // Program Starts from here ---
 int main(int argc, char const *argv[])
@@ -21,9 +25,27 @@ int main(int argc, char const *argv[])
 	int tm_isdst;   // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
-	// int i = 0;
+    int status = check_pass_status();
+    printf("%d",status); // just check
+    
+	if (status==0)
+	{
+		set_Pass();
+	}
+	char *usr_key;
+    printf("Enter the KEY");
+	scanf("%s",usr_key);
+  
+	if (!Authentication(usr_key))
+	{
+		printf("Invalid Key");
+		exit(0);
+		
+	}
 
-	FILE *fp;
+
+    
+    
 
 	if (argc > 1)
 	{
@@ -31,6 +53,7 @@ int main(int argc, char const *argv[])
 		for (int i = 1; i < argc; i++)
 		{
 			printf("Argument %d : %s\n", i, argv[i]);
+			
 			// Redirecting to help menu
 			if (!strcmp(argv[i], "-h"))
 			{
@@ -45,6 +68,18 @@ int main(int argc, char const *argv[])
 			else if (!strcmp(argv[i], "-o"))
 			{
 				open_Diary();
+			}
+			else if (!strcmp(argv[i], "-set"))
+			{
+				if (check_pass_status())
+				{
+					printf("Key is Already defined\n For reset Key use '-reset' command\n");
+				}
+				else
+				{
+                    set_Pass();   
+				}
+	
 			}
 			// Handling any other argument entered other than above
 			else
@@ -174,4 +209,98 @@ void help_menu()
 void invalid_args()
 {
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
+//<<<<<<< main
 }
+=======
+}
+
+// Check if  password is not already set 
+// return true if user exist
+// return false if user is new
+int check_pass_status (void ){
+
+    char chh;
+    FILE *fp = fopen("etc/status.txt","r"); // opening status.txt in etc directory
+    // if unsucessful attempt then fp returns NULL
+    if (fp == NULL)
+	{
+		printf("No File exist");
+		exit(1);
+	}
+    
+	while(1){
+		chh = fgetc(fp); // getting the character from the file
+		if(chh == '0' || chh == '1'){
+			break;
+		}
+		if (chh == EOF){
+			exit(1);
+		}
+
+	}
+	fclose(fp); // closing the file
+    
+	if (chh == '0'){
+
+		return 0;
+
+	}
+	else if(chh=='1'){
+		return 1;
+	}
+	else{
+		exit(1);
+	}
+
+}
+// this  module ask key from user and store in directory 
+void set_Pass(){
+	
+	char *key;
+	int i =0;
+    printf("Set your Key\nEnter a Key to diary within 10 characters\n");
+    scanf("%s",key);
+    // while(key[i]!='\0'){
+    // 	key[i] = key[i] +4;
+
+    // 	i++;
+    // }
+    FILE *fp = fopen("etc/##/#","w");
+    fputs(key,fp); // copy the key string to the file
+ 	fclose(fp);
+    
+    // updating the password status in file status.txt
+    char ch = '1';  
+    fp = fopen("etc/status.txt","w");
+	fputc(ch,fp);
+	fclose(fp);
+
+
+}
+// This module do authentication from the stored key in file
+int Authentication(char *usr_key){
+
+    int i=0;
+    char *saved_key;
+    FILE *fy = fopen("etc/##/#","w");
+    // if unsucessful attempt then fy returns NULL
+     if (fy == NULL)
+	{
+		printf("No File exist");
+		exit(1);
+	}
+	// accessing the key from file 
+	fgets(saved_key,20,fy);
+    fclose(fy);
+	if (!strcmp(usr_key,saved_key))
+	{
+		return 1;
+		
+	}
+	else
+	{
+		return 0;
+	}        
+
+}
+//>>>>>>> main
