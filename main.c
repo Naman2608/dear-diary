@@ -174,7 +174,7 @@ void add_entry()
 // Opening Diary
 void open_Diary(void)
 {
-	char *file_name;
+	char *file_name = malloc(sizeof(char) * 20);
 	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
 
@@ -182,6 +182,7 @@ void open_Diary(void)
 	if (fp == NULL)
 	{
 		printf("No Dairy exist");
+		free(file_name);
 		exit(1);
 	}
 	else
@@ -193,6 +194,7 @@ void open_Diary(void)
 		}
 	}
 	fclose(fp);
+	free(file_name);
 }
 // Displaying Help Menu
 void help_menu()
@@ -207,6 +209,9 @@ void help_menu()
 void invalid_args()
 {
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
+//<<<<<<< main
+}
+=======
 }
 
 // Check if  password is not already set 
@@ -298,3 +303,4 @@ int Authentication(char *usr_key){
 	}        
 
 }
+//>>>>>>> main
