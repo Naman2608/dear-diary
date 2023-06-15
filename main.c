@@ -26,14 +26,16 @@ int main(int argc, char const *argv[])
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
     int status = check_pass_status();
-    printf("%d",status); // just check
+    // printf("%d",status); // just check
     
 	if (status==0)
 	{
 		set_Pass();
+		printf("Password updated ");
+		exit(EXIT_SUCCESS);
 	}
-	char *usr_key;
-    printf("Enter the KEY");
+	char usr_key[20];
+    printf("Enter the KEY\n");
 	scanf("%s",usr_key);
   
 	if (!Authentication(usr_key))
@@ -71,6 +73,7 @@ int main(int argc, char const *argv[])
 			}
 			else if (!strcmp(argv[i], "-set"))
 			{
+				// set_Pass();
 				if (check_pass_status())
 				{
 					printf("Key is Already defined\n For reset Key use '-reset' command\n");
@@ -211,8 +214,8 @@ void invalid_args()
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
 //<<<<<<< main
 }
-=======
-}
+//=======
+//}
 
 // Check if  password is not already set 
 // return true if user exist
@@ -230,6 +233,7 @@ int check_pass_status (void ){
     
 	while(1){
 		chh = fgetc(fp); // getting the character from the file
+		// printf("%c",chh);
 		if(chh == '0' || chh == '1'){
 			break;
 		}
@@ -256,20 +260,24 @@ int check_pass_status (void ){
 // this  module ask key from user and store in directory 
 void set_Pass(){
 	
-	char *key;
+	char key[20];
 	int i =0;
     printf("Set your Key\nEnter a Key to diary within 10 characters\n");
-    scanf("%s",key);
+    // scanf("%s",key);
+    gets(key);
     // while(key[i]!='\0'){
     // 	key[i] = key[i] +4;
 
     // 	i++;
     // }
-    FILE *fp = fopen("etc/##/#","w");
+    FILE *fp = fopen("etc/.pass","w");
     fputs(key,fp); // copy the key string to the file
+    // free(key);
  	fclose(fp);
+ 	// free(fp);
     
     // updating the password status in file status.txt
+    // FILE *fp;
     char ch = '1';  
     fp = fopen("etc/status.txt","w");
 	fputc(ch,fp);
@@ -278,11 +286,11 @@ void set_Pass(){
 
 }
 // This module do authentication from the stored key in file
-int Authentication(char *usr_key){
+int Authentication(char usr_key[]){
 
     int i=0;
-    char *saved_key;
-    FILE *fy = fopen("etc/##/#","w");
+    char saved_key[20];
+    FILE *fy = fopen("etc/.pass","r");
     // if unsucessful attempt then fy returns NULL
      if (fy == NULL)
 	{
@@ -292,7 +300,7 @@ int Authentication(char *usr_key){
 	// accessing the key from file 
 	fgets(saved_key,20,fy);
     fclose(fy);
-	if (!strcmp(usr_key,saved_key))
+	if (strcmp(usr_key,saved_key)==0)
 	{
 		return 1;
 		
