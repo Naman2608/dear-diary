@@ -9,52 +9,56 @@
 #include <string.h>
 #include <time.h>
 #include "TimeString.h" // To Get the Current Time in a String
+#include "Authentication.h" // To use Password Functionaliy
+
 
 void open_Diary(void);
 void help_menu();
 void add_entry();
 void invalid_args();
-void set_Pass();
-int check_pass_status ( void );
-int Authentication(char *);
 
 // Program Starts from here ---
 int main(int argc, char const *argv[])
 {
+	
 
-	int tm_isdst;   // Daylight Savings Time flag
+
+	int tm_isdst;  // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
-    int status = check_pass_status();
-    // printf("%d",status); // just check
-    
-	if (status==0)
-	{
-		set_Pass();
-		printf("Password updated ");
-		exit(EXIT_SUCCESS);
+	if (argc == 1 || !strcmp(argv[1], "-h")){
+	
+		// Handling no arguments passed
+		printf("tm_isdst %d-> ", tm_isdst);
+		help_menu();
+		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
+
 	}
-	char usr_key[20];
-    printf("Enter the KEY\n");
-	scanf("%s",usr_key);
-  
-	if (!Authentication(usr_key))
-	{
-		printf("Invalid Key");
-		exit(0);
-		
-	}
+	else{
+		// Authetication
+		int count = 1;
+		while (count <=3){
+			if (mainAuthen())
+			{
+				break;
+			}
+			count++;
+			if (count==4)
+			{
 
+				fprintf(stderr,"\nAuthentication Limit Exceed\nExiting ...\n");
+				sleep_ms(1000);
+				exit(EXIT_FAILURE);
 
-    
-    
+			}
 
-	if (argc > 1)
-	{
-		printf("%d Argument(s) Recieved,\n", argc - 1); // Checking the Arguments
+		}
+		sleep_ms(1000);
+        
+		// printf("%d Argument(s) Recieved,\n", argc - 1); // Checking the Arguments
 		for (int i = 1; i < argc; i++)
 		{
-			printf("Argument %d : %s\n", i, argv[i]);
+			// printf("Argument %d : %s\n", i, argv[i]);
 			
 			// Redirecting to help menu
 			if (!strcmp(argv[i], "-h"))
@@ -89,14 +93,7 @@ int main(int argc, char const *argv[])
 			{
 				invalid_args();
 			}
-		}
-	}
-	// Handling no arguments passed
-	else
-	{
-		printf("tm_isdst %d-> ", tm_isdst);
-		help_menu();
-		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
+        }
 	}
 	return 0;
 }
@@ -212,103 +209,4 @@ void help_menu()
 void invalid_args()
 {
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
-//<<<<<<< main
 }
-//=======
-//}
-
-// Check if  password is not already set 
-// return true if user exist
-// return false if user is new
-int check_pass_status (void ){
-
-    char chh;
-    FILE *fp = fopen("etc/status.txt","r"); // opening status.txt in etc directory
-    // if unsucessful attempt then fp returns NULL
-    if (fp == NULL)
-	{
-		printf("No File exist");
-		exit(1);
-	}
-    
-	while(1){
-		chh = fgetc(fp); // getting the character from the file
-		// printf("%c",chh);
-		if(chh == '0' || chh == '1'){
-			break;
-		}
-		if (chh == EOF){
-			exit(1);
-		}
-
-	}
-	fclose(fp); // closing the file
-    
-	if (chh == '0'){
-
-		return 0;
-
-	}
-	else if(chh=='1'){
-		return 1;
-	}
-	else{
-		exit(1);
-	}
-
-}
-// this  module ask key from user and store in directory 
-void set_Pass(){
-	
-	char key[20];
-	int i =0;
-    printf("Set your Key\nEnter a Key to diary within 10 characters\n");
-    // scanf("%s",key);
-    gets(key);
-    // while(key[i]!='\0'){
-    // 	key[i] = key[i] +4;
-
-    // 	i++;
-    // }
-    FILE *fp = fopen("etc/.pass","w");
-    fputs(key,fp); // copy the key string to the file
-    // free(key);
- 	fclose(fp);
- 	// free(fp);
-    
-    // updating the password status in file status.txt
-    // FILE *fp;
-    char ch = '1';  
-    fp = fopen("etc/status.txt","w");
-	fputc(ch,fp);
-	fclose(fp);
-
-
-}
-// This module do authentication from the stored key in file
-int Authentication(char usr_key[]){
-
-    int i=0;
-    char saved_key[20];
-    FILE *fy = fopen("etc/.pass","r");
-    // if unsucessful attempt then fy returns NULL
-     if (fy == NULL)
-	{
-		printf("No File exist");
-		exit(1);
-	}
-	// accessing the key from file 
-	fgets(saved_key,20,fy);
-    fclose(fy);
-	if (strcmp(usr_key,saved_key)==0)
-	{
-		return 1;
-		
-	}
-	else
-	{
-		return 0;
-	}        
-
-}
-//>>>>>>> main
