@@ -23,7 +23,7 @@ char* mainPASS() {
     char password[MAX_PASSWORD_LENGTH + 1];
     char storedPassword[] = "mysecretpassword";  // Change this to your desired password
 
-    printf("Enter the password: ");
+    printf("Enter Password: ");
     fflush(stdout);
 
     disableEcho();
@@ -47,14 +47,4 @@ char* mainPASS() {
     char *pass= &password[0];
 
     return pass;
-
-    // if (strcmp(password, storedPassword) == 0) {
-    //     printf("Access granted!\n");
-    //     // Add your code here for what to do after successful authentication
-    // } else {
-    //     printf("Access denied!\n");
-    //     // Add your code here for what to do after unsuccessful authentication
-    // }
-
-    // return 0;
 }

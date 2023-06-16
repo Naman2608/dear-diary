@@ -3,18 +3,22 @@
 
 #ifndef DIARY_AUTHENTICATION_H
 #define DIARY_AUTHENTICATION_H
-
-
-#include "HidePassEnter.h"
 #endif
-// Check if  password is not already set 
+
+#ifdef WIN32
+
+#else
+    #include "HidePassEnter.h"
+#endif
+
+// Check if  password is not already set
 // return true if user exist
 // return false if user is new
 int check_pass_status (void ){
 
     char chh;
     FILE *fp = fopen("etc/status.txt","r"); // opening status.txt in etc directory
-    // if unsucessful attempt then fp returns NULL
+    // if unsuccessful attempt then fp returns NULL
     if (fp == NULL)
 	{
 		printf("No File exist");
@@ -52,7 +56,7 @@ void set_Pass(){
 	
 	char key[20];
 	int i =0;
-    printf("Set your Key\nEnter a Key to diary within 10 characters\n");
+    printf("Set your Key\nEnter a Key for diary access within 10 characters\n");
     scanf("%s",key);
     // gets(key);
     // while(key[i]!='\0'){
@@ -84,7 +88,7 @@ int Authentication(char usr_key[]){
     // if unsucessful attempt then fy returns NULL
      if (fy == NULL)
 	{
-		printf("No File exist");
+		printf("No File exists");
 		exit(1);
 	}
 	// accessing the key from file 
@@ -127,16 +131,16 @@ int mainAuthen(void){
 	if (status==0)
 	{
 		set_Pass();
-		printf("Password updated\n To use diary Run Agian");
+		printf("Password updated\n Rerun the diary to continue using");
 		exit(EXIT_SUCCESS);
 	}
 
 	char usr_key[20];
 	#ifdef WIN32
-   	      printf("\nEnter the KEY\n");
+   	      printf("\nEnter Password :\n");
               int i;
               for (i = 0; i < 20; i++) {
-         	 usr_key[i] = getc();
+         	 usr_key[i] = getch();
    	 	 if (usr_key[i] == '\r' || usr_key[i]=='\n') {
                         usr_key[i] = '\0';
    			   break;
@@ -155,7 +159,7 @@ int mainAuthen(void){
 		
 	}
 	else{
-		printf("\nYou are in diary\n");
+		printf("\nAuthentication Successful!\n");
 		return 1;
 	}
 

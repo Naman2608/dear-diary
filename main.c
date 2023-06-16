@@ -20,18 +20,14 @@ void invalid_args();
 // Program Starts from here ---
 int main(int argc, char const *argv[])
 {
-	
-
-
 	int tm_isdst;  // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
 	if (argc == 1 || !strcmp(argv[1], "-h")){
 	
 		// Handling no arguments passed
-		printf("tm_isdst %d-> ", tm_isdst);
 		help_menu();
-		printf("\n---------------------------------------------\nPlease use '-new' for Writing about you day \n");
+		printf("\n---------------------------------------------\nUse ./diary -new to start writing \n");
 
 	}
 	else{
@@ -46,7 +42,7 @@ int main(int argc, char const *argv[])
 			if (count==4)
 			{
 
-				fprintf(stderr,"\nAuthentication Limit Exceed\nExiting ...\n");
+				fprintf(stderr,"\nAuthentication Limit Exceeded\nExiting ...\n");
 				sleep_ms(1000);
 				exit(EXIT_FAILURE);
 
@@ -80,7 +76,7 @@ int main(int argc, char const *argv[])
 				// set_Pass();
 				if (check_pass_status())
 				{
-					printf("Key is Already defined\n For reset Key use '-reset' command\n");
+					printf("Key already exists! A key must be unique & not the same as before\n");
 				}
 				else
 				{
@@ -108,7 +104,7 @@ void add_entry()
 
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 
-	printf("\nStart Writting...\nfor Exit type exit()\n");
+	printf("\nStart Writting...\nWhen you're finished writing add a new line, type in `exit()` and press enter to save & exit\n");
 	// Just Storing Time and a line break as default for every file ------>
 	char Date_Time[50];
 	sprintf(Date_Time, "\n%s\n@%s\nDear Diary,\n", DD_Str, TT_Str);
@@ -154,7 +150,7 @@ void add_entry()
 		exit(1);
 	}
      // creating a file with name of Date
-	fp = fopen(DD_Str, "a+");
+	fp = fopen(strcat(DD_Str, ".txt"), "a+");
 	// if file not created sucessfully then it will exit code 
 	if (fp == NULL)
 	{
@@ -177,11 +173,10 @@ void open_Diary(void)
 	char *file_name = malloc(sizeof(char) * 20);
 	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
-
-	FILE *fp = fopen(file_name, "r+");
+    FILE *fp = fopen(strcat(file_name, ".txt"), "r+");
 	if (fp == NULL)
 	{
-		printf("No Dairy exist");
+		printf("No Diary found for the date : %s", file_name);
 		free(file_name);
 		exit(1);
 	}
@@ -199,10 +194,10 @@ void open_Diary(void)
 // Displaying Help Menu
 void help_menu()
 {
-	printf("\n\nDear-Diary is a Simple & Elegant Diary Writting Software that provides an easy to use CLI Interface.\nYou can support the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
-	printf("\nUsage :\n\t main <command>\n");
+	printf("\n\nWelcome to Dear-Diary \nA Journal/Diary Writing Software providing a simple and easy to use CLI Interface.\nSupport the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
+	printf("\nUsage :\n\t diary <command>\n");
 	printf("\nAvailable Commands : \n");
-	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n");
+	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n -set Set\\/Reset Password [Experimental]");
 }
 
 // Handling invalid arguments
