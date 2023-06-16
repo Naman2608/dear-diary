@@ -4,9 +4,9 @@
 #ifndef DIARY_AUTHENTICATION_H
 #define DIARY_AUTHENTICATION_H
 
-#endif 
 
 #include "HidePassEnter.h"
+#endif
 // Check if  password is not already set 
 // return true if user exist
 // return false if user is new
@@ -132,21 +132,22 @@ int mainAuthen(void){
 	}
 
 	char usr_key[20];
-	char *pusr_key;
-	pusr_key = mainPASS();
-	strcpy(usr_key,pusr_key);
-    // printf("\nEnter the KEY\n");
-    // int i;
-    // for (i = 0; i < 20; i++) {
-   	// 	 usr_key[i] = getc();
-   	// 	 if (usr_key[i] == '\r' || usr_key[i]=='\n') {
-    //            usr_key[i] = '\0';
-   	// 		   break;
-    //       }
-    //      printf("*");
-    // }
+	#ifdef WIN32
+   	      printf("\nEnter the KEY\n");
+              int i;
+              for (i = 0; i < 20; i++) {
+         	 usr_key[i] = getc();
+   	 	 if (usr_key[i] == '\r' || usr_key[i]=='\n') {
+                        usr_key[i] = '\0';
+   			   break;
+                  }
+               printf("*");
+               }
+        #else
+             char *pusr_key = mainPASS();
+             strcmp(usr_key,pusr_key);
 
-  
+        #endif
 	if (!Authentication(usr_key))
 	{
 		printf("Invalid Key\n");
