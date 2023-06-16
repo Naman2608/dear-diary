@@ -7,3 +7,4 @@ main { -new | -h | -o }
 -new : Create a New Diary Entry <br>
 -h : Open Help Menu <br>
 -o : Open an old Diary Entry <br>
+- set : Set/Reset Password [Experimental]
