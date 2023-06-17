@@ -1,3 +1,6 @@
 *.out
 *.exe
 .idea
+*.txt
+.status
+.pass
