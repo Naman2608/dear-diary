@@ -17,26 +17,33 @@
 int check_pass_status (void ){
 
     char chh;
-    FILE *fp = fopen("etc/status.txt","r"); // opening status.txt in etc directory
+    FILE *fp = fopen("etc/.status","r"); // opening status.txt in etc directory
     // if unsuccessful attempt then fp returns NULL
     if (fp == NULL)
 	{
-		printf("No File exist");
-		exit(1);
+		FILE *fp2 = fopen("etc/.status","w");
+		fputc('0',fp2);
+		fclose(fp2);
+		
 	}
-    
-	while(1){
-		chh = fgetc(fp); // getting the character from the file
-		// printf("%c",chh);
-		if(chh == '0' || chh == '1'){
-			break;
-		}
-		if (chh == EOF){
-			exit(1);
-		}
+	fclose(fp);
+	
+    FILE *fp3 = fopen("etc/.status","r"); // opening status.txt in etc directory
 
-	}
-	fclose(fp); // closing the file
+	 // getting the character from the file
+		// printf("-%c-",chh);
+	chh = fgetc(fp3); // getting the character from the file
+
+	// if (chh == EOF){
+		
+	// }
+    // fseek(fp, 0, SEEK_SET);
+    
+	// chh = fgetc(fp); // getting the character from the file
+    // printf("-%c-",chh);
+
+    
+	fclose(fp3); // closing the file
     
 	if (chh == '0'){
 
@@ -73,9 +80,12 @@ void set_Pass(){
     // updating the password status in file status.txt
     // FILE *fp;
     char ch = '1';  
-    fp = fopen("etc/status.txt","w");
+    fp = fopen("etc/.status","w");
 	fputc(ch,fp);
 	fclose(fp);
+
+	printf("Password updated\n Rerun the diary to continue using\n");
+
 
 
 }
@@ -88,7 +98,7 @@ int Authentication(char usr_key[]){
     // if unsucessful attempt then fy returns NULL
      if (fy == NULL)
 	{
-		printf("No File exists");
+		printf("No File exists\n Set your Password first");
 		exit(1);
 	}
 	// accessing the key from file 
@@ -131,27 +141,32 @@ int mainAuthen(void){
 	if (status==0)
 	{
 		set_Pass();
-		printf("Password updated\n Rerun the diary to continue using");
 		exit(EXIT_SUCCESS);
 	}
 
 	char usr_key[20];
 	#ifdef WIN32
-   	      printf("\nEnter Password :\n");
-              int i;
-              for (i = 0; i < 20; i++) {
+   	    printf("\nEnter Password :\n");
+        int i;
+        for (i = 0; i < 20; i++) {
          	 usr_key[i] = getch();
-   	 	 if (usr_key[i] == '\r' || usr_key[i]=='\n') {
+   	 	     if (usr_key[i] == '\r' || usr_key[i]=='\n') {
                         usr_key[i] = '\0';
-   			   break;
-                  }
-               printf("*");
-               }
-        #else
-             char *pusr_key = mainPASS();
-             strcmp(usr_key,pusr_key);
+   			            break;
+                }
+        printf("*");
+        }
+    #else
+             char *pusr_key;
+             pusr_key = mainPASS();
+             strcpy(usr_key,pusr_key);
+             
+             // for (int i = 0; i < strlen(usr_key); ++i)
+             // {
+             // 	printf("%c",usr_key[i]);
+             // }
 
-        #endif
+    #endif
 	if (!Authentication(usr_key))
 	{
 		printf("Invalid Key\n");
