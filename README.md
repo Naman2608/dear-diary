@@ -8,3 +8,5 @@ main { -new | -h | -o }
 -h : Open Help Menu <br>
 -o : Open an old Diary Entry <br>
 -reset : Set/Reset Password [Experimental]
+
+Suggest features, Report Bugs and Learn more about software features on [Diary-Diary User Forum](https://groups.google.com/g/dear-diary-user-forum)
