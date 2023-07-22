@@ -11,15 +11,56 @@
 #include "TimeString.h" // To Get the Current Time in a String
 #include "Authentication.h" // To use Password Functionaliy
 
+#ifdef _WIN32
+#include <Windows.h>
+
+#else
+#include <sys/stat.h>
+#endif
+
+#define DIARY_DIR "entries"
+
 
 void open_Diary(void);
 void help_menu();
 void add_entry();
 void invalid_args();
 
+// Diary Entry folder creation if not present
+int create_diary_dir() {
+#ifdef _WIN32
+    if (CreateDirectory(DIARY_DIR, NULL)) {
+        return 1; // Directory created successfully, return success
+    } else if (GetLastError() == ERROR_ALREADY_EXISTS) {
+        return 1; // Directory already exists, return success
+    } else {
+        fprintf(stderr, "Error creating directory\n");
+        return 0; // Return failure
+    }
+#else
+    struct stat st = {0};
+    if (stat(DIARY_DIR, &st) == -1) {
+        if (mkdir(DIARY_DIR, 0700) == -1) {
+            fprintf(stderr, "Error creating directory\n");
+            return 0; // Return failure
+        }
+        return 1; // Directory created successfully, return success
+    } else if (!S_ISDIR(st.st_mode)) {
+        fprintf(stderr, "Error creating directory\n");
+        return 0; // Return failure (the path exists but is not a directory)
+    }
+
+    return 1; // Directory already exists, return success
+#endif
+}
+
 // Program Starts from here ---
 int main(int argc, char const *argv[])
 {
+	if (!create_diary_dir()) {
+        exit(EXIT_FAILURE);
+    }
+
 	int tm_isdst;  // Daylight Savings Time flag
 	getTheTime();  // getTheTime() is function of TimeString.h
 	// printf("THE TIME IS : %s\n", TT_Str);
@@ -150,7 +191,9 @@ void add_entry()
 		exit(1);
 	}
      // creating a file with name of Date
-	fp = fopen(strcat(DD_Str, ".txt"), "a+");
+	 char filePath[100];
+    sprintf(filePath, "./" DIARY_DIR "/%s.txt", DD_Str);
+    fp = fopen(filePath, "a+");
 	// if file not created sucessfully then it will exit code 
 	if (fp == NULL)
 	{
@@ -173,7 +216,11 @@ void open_Diary(void)
 	char *file_name = malloc(sizeof(char) * 20);
 	printf("Enter the Date for Dairy Entry in the following format :  DD-MM-YY \n for eg:(23-4-2023) \n");
 	scanf("%s", file_name);
-    FILE *fp = fopen(strcat(file_name, ".txt"), "r+");
+
+	char filePath[100];
+    sprintf(filePath, "./" DIARY_DIR "/%s.txt", file_name);
+
+    FILE *fp = fopen(filePath, "r+");
 	if (fp == NULL)
 	{
 		printf("No Diary found for the date : %s", file_name);
@@ -205,3 +252,4 @@ void invalid_args()
 {
 	printf("Invalid Argument(s), Please use '-h' for more information\n");
 }
+
