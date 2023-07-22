@@ -1,6 +1,7 @@
 *.out
 *.exe
 <<<<<<< HEAD
+<<<<<<< HEAD
 ./entries
 ./.idea
 =======
@@ -9,3 +10,6 @@
 .status
 .pass
 >>>>>>> origin/main
+=======
+.idea
+>>>>>>> parent of a35f831 (Entries now stored in /entries directory, with cross platform solution)
