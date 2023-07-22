@@ -1,4 +1,11 @@
 *.out
 *.exe
+<<<<<<< HEAD
 ./entries
 ./.idea
+=======
+.idea
+*.txt
+.status
+.pass
+>>>>>>> origin/main

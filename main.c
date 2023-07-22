@@ -112,18 +112,10 @@ int main(int argc, char const *argv[])
 			{
 				open_Diary();
 			}
-			else if (!strcmp(argv[i], "-set"))
+			else if (!strcmp(argv[i], "-reset"))
 			{
 				// set_Pass();
-				if (check_pass_status())
-				{
-					printf("Key already exists! A key must be unique & not the same as before\n");
-				}
-				else
-				{
-                    set_Pass();   
-				}
-	
+                set_Pass();   
 			}
 			// Handling any other argument entered other than above
 			else
@@ -244,7 +236,7 @@ void help_menu()
 	printf("\n\nWelcome to Dear-Diary \nA Journal/Diary Writing Software providing a simple and easy to use CLI Interface.\nSupport the development by forking the Github repository at 'https://github.com/Naman2608/diary'\n");
 	printf("\nUsage :\n\t diary <command>\n");
 	printf("\nAvailable Commands : \n");
-	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n -set Set\\/Reset Password [Experimental]");
+	printf("\t-new : Create a New Diary Entry\n\t-h : Open Help Menu\n\t-o : Open an old Diary Entry\n\t-reset : Reset Password [Experimental]");
 }
 
 // Handling invalid arguments
