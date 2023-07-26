@@ -1,6 +1,8 @@
 *.out
 *.exe
-.idea
+./entries
+./.idea
 *.txt
 .status
 .pass
+.idea
