@@ -1,0 +1,133 @@
+window {
+    border-radius: 0;
+    background: white;
+    box-shadow: none;
+}
+headerbar {
+    color: rgb(90,90,90);
+    text-shadow: none;
+    background: #f6f2f2;
+    border-radius: 4px 4px 0 0;
+    box-shadow: inset 0px 1px 0 0px rgba(255,255,255,.8), 0 1px 0 0 rgba(134, 134, 134, .1), 0 1px 2px rgba(0,0,0,.3);
+    border: none;
+    font-family: "Inter", "Liberation Sans", sans-serif;
+    font-size: 14px;
+    padding: 0 5px;
+    font-weight: normal;
+    min-height: 10px;
+}
+
+headerbar button {
+  font-size: 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.3);
+  min-height: 12px;
+  min-width: 0;
+  margin: 10px 4px;
+  background: #ff6666;
+  border: Solid 1px #ce3e3e;
+  text-shadow: none;
+  border-radius: 1px;
+  outline: none;
+  padding: 0 6px;
+}
+
+headerbar button:hover {
+    background: #ff8280;
+}
+
+headerbar button:active {
+    box-shadow: 0 0 0 1px rgba(230,230,230,.4), inset 0 1px 2px 1px rgba(0,0,0,.5);
+}
+
+window > box > box {
+    margin: 10px;
+}
+window > box > box > button {
+    margin-left: 10px;
+    background: rgba(240,240,240,.9);
+    color: rgba(0,0,0,.8);
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0 20px;
+/*    letter-spacing: -0.067em;*/
+    border: Solid 1px rgba(100,100,100,.5);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    transition: none;
+}
+
+window > box > box > button:focus {
+    outline-style: solid;
+    outline-width: 4px;
+    outline-color: rgba(233,63,47,0.36);
+    outline-offset: -1px;
+    animation : jumpFocus .17s ease-in-out;
+}
+
+window > box > box > button:active {
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.5);
+    animation: activeFocus .17s ease-in-out;
+}
+
+window > box > entry {
+    font-family: "Menlo", monospace;
+    font-size: 15px;
+    border: none;
+}
+window > box > entry {
+    border-radius: 0;
+    padding: 0 10px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, .7);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.2);
+}
+window > box > entry:selected {
+    background-color: rgba(219,68,55,.8);
+    color: black;
+}
+#scrollwindow {
+    margin: 10px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+#label {
+    color: black;
+    font-family: "Ubuntu Mono", "Menlo", monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+@keyframes jumpFocus {
+    0% {
+        outline-width: 25px;
+        outline-offset: 3px;
+        outline-color: rgba(219,68,55,.8);
+    }
+    20% {
+        outline-width: 5px;
+    }
+    100% {
+        outline-offset: -1px;
+        outline-width: 4px;
+        outline-color: rgba(233,63,47,0.36);
+    }
+}
+
+@keyframes activeFocus {
+    0% {
+        outline-offset: -1px;
+        outline-color: rgba(233,63,47,0.36);
+    }
+    50% {
+        outline-offset: 5px;
+        outline-color: rgba(233,63,47,0.36);
+    }
+    100% {
+        outline-offset: -1px;
+        outline-color: rgba(233,63,47,0.36);
+    }
+}

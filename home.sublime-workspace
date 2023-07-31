@@ -1,0 +1,562 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pri",
+				"printf\tprintf …"
+			],
+			[
+				"inc",
+				"Inc\t#include <…>"
+			],
+			[
+				"pr",
+				"printSubArrayUtil"
+			],
+			[
+				"strc",
+				"strcat"
+			],
+			[
+				"ou",
+				"output"
+			],
+			[
+				"out",
+				"out_s"
+			],
+			[
+				"exe",
+				"executor"
+			],
+			[
+				"Outpu",
+				"output"
+			],
+			[
+				"i",
+				"if\tIf Condition"
+			],
+			[
+				"outpu",
+				"output"
+			],
+			[
+				"new",
+				"newArgc"
+			],
+			[
+				"A",
+				"newArgv"
+			],
+			[
+				"o",
+				"output"
+			],
+			[
+				"sr",
+				"src_o"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"si",
+				"sizeof"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"le",
+				"len_input"
+			],
+			[
+				"str",
+				"strcpy"
+			],
+			[
+				"re",
+				"read_cmd_gui"
+			],
+			[
+				"fo",
+				"for\tFor Loop"
+			],
+			[
+				"ma",
+				"main\tmain()"
+			],
+			[
+				"get",
+				"getenv"
+			],
+			[
+				"Eno",
+				"ENOENT"
+			],
+			[
+				"En",
+				"ENOEXEC"
+			],
+			[
+				"fre",
+				"free_token"
+			],
+			[
+				"for",
+				"fork"
+			],
+			[
+				"do_",
+				"do_simple_command"
+			],
+			[
+				"arg",
+				"argv"
+			],
+			[
+				"do",
+				"do_exec_cmd"
+			],
+			[
+				"E",
+				"ENOENT"
+			],
+			[
+				"p",
+				"p_Path"
+			],
+			[
+				"free",
+				"free_token"
+			],
+			[
+				"add_",
+				"add_child_node"
+			],
+			[
+				"No",
+				"NODE_VAR"
+			],
+			[
+				"mai",
+				"main\tmain()"
+			],
+			[
+				"ic",
+				"Inc\t#include <…>"
+			],
+			[
+				"cond",
+				"cond_astrik"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"S",
+				"SOURCE_H"
+			],
+			[
+				"che",
+				"check_pass_status"
+			],
+			[
+				"regis",
+				"registry"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"m",
+				"message"
+			],
+			[
+				"stri",
+				"String"
+			],
+			[
+				"R",
+				"RuntimeException"
+			],
+			[
+				"St",
+				"String"
+			],
+			[
+				"Rem",
+				"RuntimeException"
+			],
+			[
+				"remove",
+				"removeMember"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"incre",
+				"incre_f"
+			],
+			[
+				"fir",
+				"first"
+			],
+			[
+				"par",
+				"partition"
+			],
+			[
+				"el",
+				"elif"
+			],
+			[
+				"File",
+				"FileReader"
+			],
+			[
+				"exit",
+				"exists"
+			],
+			[
+				"getI",
+				"getInputStream"
+			],
+			[
+				"Ser",
+				"Server2"
+			],
+			[
+				"cl",
+				"close"
+			],
+			[
+				"Inpu",
+				"InputStreamReader"
+			],
+			[
+				"In",
+				"InputStreamReader"
+			],
+			[
+				"stdl",
+				"stdlib.h"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #include \"…\""
+			],
+			[
+				"pac",
+				"Install Package Control"
+			],
+			[
+				"",
+				"Set Syntax: C++"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 160.0,
+		"history":
+		[
+			"print(\"je\")",
+			"print(\"je\"",
+			"cout<<\"helllp\"",
+			"fdk",
+			"5"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/C Tutorial/chapter_07/07_05_pointer_arethematic.c",
+		"/home/naman/.config/sublime-text-3/Packages/User/C-Custom.sublime-build",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/C Tutorial/chapter_06/06_01_pointer_basics.c",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/100_subArrayRE.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/9.Pointers/192_e.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/9.Pointers/191_c.c",
+		"/home/naman/projects/myShell-gui/100_subArrayRE.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/10. Recursion/205_a.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/8. Functions/205_a.c",
+		"/home/naman/temp.cpp",
+		"/home/naman/projects/myShell-gui/executor.h",
+		"/home/naman/projects/myShell-gui/shell.h",
+		"/home/naman/projects/myShell-gui/output.h",
+		"/home/naman/projects/myShell-gui/output.c",
+		"/home/naman/projects/myShell/executor.c",
+		"/home/naman/projects/myShell-gui/myShell.c",
+		"/home/naman/projects/myShell/myShell.c",
+		"/home/naman/projects/myShell-gui/source.c",
+		"/home/naman/projects/myShell-gui/scanner.c",
+		"/home/naman/projects/myShell-gui/main.c",
+		"/home/naman/projects/myShell/parser.c",
+		"/home/naman/projects/myShell/node.c",
+		"/home/naman/projects/myShell/source.c",
+		"/home/naman/projects/lets-build-a-linux-shell/part2-3/executor.h",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/57_search_nearly_sorted_array.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/56_sqrt_bs.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/57_division_bs.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/58_pivot_ele_bs.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/54_fact_large_num.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/53.cpp",
+		"/home/naman/projects/myShell-gui/Makefile",
+		"/home/naman/projects/myShell-gui/source.h",
+		"/home/naman/projects/myShell-gui/executor.c",
+		"/home/naman/projects/lets-build-a-linux-shell/part2-3/parser.c",
+		"/home/naman/projects/myShell-gui/Backend/parser.c",
+		"/home/naman/projects/myShell-gui/Backend/myShell.h",
+		"/home/naman/projects/myShell-gui/Backend/myShell.c",
+		"/home/naman/projects/gnome-terminal/src/prefs-main.cc",
+		"/home/naman/projects/gnome-terminal/src/terminal.cc",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/47.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/49.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/8. Functions/173_c.c",
+		"/home/naman/temp.c",
+		"/home/naman/projects/myShell/Makefile",
+		"/home/naman/projects/lets-build-a-linux-shell/part2-3/main.c",
+		"/home/naman/projects/myShell/executor.h",
+		"/home/naman/projects/myShell/source.h",
+		"/home/naman/projects/myShell/shell.h",
+		"/home/naman/projects/myShell/parser.h",
+		"/home/naman/projects/myShell/node.h",
+		"/home/naman/projects/shell-gui/style.css",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_n.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_o.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_p.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_i.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_j.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_l.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/125_m.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/124_g.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/124_d.c",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/26.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/52.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/33.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/32.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/30.cpp",
+		"/media/naman/New Volume/NAMAN/Love Babbar/Code/31.cpp",
+		"/media/naman/New Volume2/NAMAN/Love Babbar/Code/31.cpp",
+		"/media/naman/New Volume2/NAMAN/PhaDAii_2/Python/Open CV/virtual_env/lib/python3.8/site-packages/jedi/third_party/django-stubs/django-stubs/utils/dateformat.pyi",
+		"/home/naman/dearest-diary/main.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/ADA/_01knapsack.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii_2/Python/ML_ymca/M_S_code/linear_reg_statistical.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/Threadd.java",
+		"/media/naman/New Volume/NAMAN/PhaDAii_2/Python/ML_ymca/M_S_code/linear_reg_tensorflow.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii_2/Python/ML_ymca/linear_reg.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/ADA/N_Queen.cpp",
+		"/home/naman/diary/22-4-2023",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/RMI/cmds.txt",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/RMI/DemoInterface.java",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/RMI/server.policy",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/RMI/DemoClient.java",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/RMI/DemoServer.java",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/matchstick.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/101_f.c",
+		"/home/naman/diary/.gitignore",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/classmethod.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/String_op.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/Class_op.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/List_op.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/Inheritance.py",
+		"/home/naman/diary/18-4-2023",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/__main__.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/__name__main__.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/Operations.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/ADA/_01recurKnap.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii/ADA/Fknapsack.cpp",
+		"/media/naman/New Volume/NAMAN/PhaDAii/JAVA NAMAN/Socket/Adi.txt",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/1.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Py_ymca/input.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/Let Us C PRACTICE/temp.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Python_Practice/wifi_pass.py",
+		"/media/naman/New Volume/NAMAN/PhaDAii/Python/Python_Practice/Auto_folder_cleaner.py",
+		"/media/naman/New Volume/NAMAN/Guassian-GUI/index.c",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C/new.c",
+		"/media/naman/New Volume/NAMAN/Guassian-GUI/main.c",
+		"/media/naman/New Volume/NAMAN/Guassian-GUI/makefile",
+		"/home/naman/.config/sublime-text-3/Packages/User/outputf.out",
+		"/home/naman/.config/sublime-text-3/Packages/User/inputf.in",
+		"/media/naman/New Volume/NAMAN/PhaDAii/DSA_Reloaded/3_Star_ptrn/1.cpp",
+		"/home/naman/.config/sublime-text-3/Packages/User/CP.sublime-build",
+		"/home/naman/.config/sublime-text-3/Packages/User/cpp_input.sublime-build",
+		"/home/naman/.config/sublime-text-3/Packages/User/RUN_CPP.sublime-build",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C++/Tutorial/outputf.in",
+		"/home/naman/.config/sublime-text-3/Packages/User/RUN_C.sublime-build",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C++/Tutorial/inputf.in",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C Tutorial/output.in",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C Tutorial/input.in",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C Tutorial/gtk.build",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C Tutorial/.fuse_hidden00006e4a00000003",
+		"/media/naman/New Volume/NAMAN/PhaDAii/C Tutorial/.fuse_hidden00006e4800000001"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 340.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 116.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/C-Custom.sublime-build",
+	"project": "home.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mysh",
+				"myShell.c"
+			],
+			[
+				"main.c",
+				"main.c"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 197.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
