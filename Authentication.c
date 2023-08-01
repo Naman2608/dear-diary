@@ -4,8 +4,10 @@
 #include <string.h>
 #include <time.h>
 
+
 #ifdef WIN32
 	#include <Windows.h>
+	#include <conio.h>
 #else
     #include "HidePassEnter.h"
 #endif
@@ -149,7 +151,7 @@ int mainAuthen(void){
    	    printf("\nEnter Password :\n");
         int i;
         for (i = 0; i < 20; i++) {
-        	scanf("%c", usr_key[i]);
+        	usr_key[i] = getch();
 		 	     if (usr_key[i] == '\r' || usr_key[i]=='\n') {
                         usr_key[i] = '\0';
    			            break;

@@ -66,7 +66,7 @@ char* open_Today(){
 		exit(1);
 	}
 	else{
-		char *str;
+		char *str = malloc(sizeof(char) * 20);
 		do  {
 			str = str;
         }while((fgets(str, 19, fp2) != NULL));
@@ -85,7 +85,7 @@ char* open_Last(){
 		exit(1);
 	}
 	else{
-		char *str;
+		char *str = malloc(sizeof(char) * 20) ;
 		// fgets(str,19,fp2);
 		do  {
 			str = str;
