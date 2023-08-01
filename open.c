@@ -1,13 +1,13 @@
 #include "open.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "new.h"
 #include <string.h>
 #include "TimeString.h"
 
 #define DIARY_DIR "entries"
 
 // Opening Diary
+// char DD_Str[12];
 void open_Diary(void)
 {
 	FILE *fp1 = fopen("etc/.today","w");
@@ -90,7 +90,7 @@ char* open_Last(){
 		do  {
 			str = str;
         }while((fgets(str, 19, fp2) != NULL));
- 		// strcat(str,"");
+ 		
 		fclose(fp2);
 		return str;
 	}

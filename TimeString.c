@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include "TimeString.h"
 
+int DD, MM, YY, TH, TM, TS;
+char DD_Str[12],TT_Str[12];
+
 void getTheTime()
 {
     time_t rawtime;
@@ -10,6 +13,7 @@ void getTheTime()
     time(&rawtime);
     tm = localtime(&rawtime);
     tzset();
+
     // storing the date/month/and year to a structure
     DD = tm->tm_mday,        // The Current Date
     MM = tm->tm_mon + 1,     // Here 0 = January and 11 = December, so an increment is made to get the dateString

@@ -178,3 +178,24 @@ int mainAuthen(void){
 	}
 
 }
+void Authenticating(){
+	// Authetication
+		int count = 1;
+		while (count <=3){
+			if (mainAuthen())
+			{
+				break;
+			}
+			count++;
+			if (count==4)
+			{
+
+				fprintf(stderr,"\nAuthentication Limit Exceeded\nExiting ...\n");
+				sleep_ms(1000);
+				exit(EXIT_FAILURE);
+
+			}
+
+		}
+		sleep_ms(1000);
+}

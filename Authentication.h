@@ -10,6 +10,7 @@ void set_Pass();
 int Authentication(char usr_key[]);
 void sleep_ms(int milliseconds);
 int mainAuthen(void);
+void Authenticating();
 
 
 #endif

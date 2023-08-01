@@ -7,9 +7,9 @@
 
 
 
-int DD, MM, YY, TH, TM, TS;
-char DD_Str[12];
-char TT_Str[12];
+extern int DD, MM, YY, TH, TM, TS;
+extern char DD_Str[12];
+extern char TT_Str[12];
 
 // Get Time String
 void getTheTime();
