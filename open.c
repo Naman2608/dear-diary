@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "TimeString.h"
+#include "randomD.h"
 
 #define DIARY_DIR "entries"
 
@@ -34,9 +35,19 @@ void open_Diary(void)
     	
     	strcpy(file_name,open_Today());
     }
-    
+    else if(!strcmp(file_name,"random")){
+    	
+    	strcpy(file_name,randomDiary());
+    }
+
 	char filePath[100];
-    sprintf(filePath, "./" DIARY_DIR "/%s.txt", file_name);
+    if(strstr(file_name,".txt")) 
+    {
+	    sprintf(filePath, "./" DIARY_DIR "/%s", file_name);
+    }
+    else{
+    	sprintf(filePath, "./" DIARY_DIR "/%s.txt", file_name);
+    }
 
     FILE *fp = fopen(filePath, "r+");
 	if (fp == NULL)
