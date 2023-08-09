@@ -11,6 +11,12 @@
 #else
 #include <sys/stat.h>
 #endif
+// Use this SOON <-->
+void xor_encrypt_decrypt(char **input,int i, const char *key) {
+    for (int j = 0; input[i][j] != '\0'; j++) {
+        input[i][j] = input[i][j] ^ key[j % strlen(key)];
+    }
+}
 // Create a new Entry
 void add_entry()
 {
@@ -18,9 +24,6 @@ void add_entry()
 	int n = 3, i = 0;
 	char **text;		      // 2D array
 	text = malloc(n * sizeof(char *)); // Allocating only One block of memory for first line
-    
-	
-    
     
 	char terminate[] = "exit()\n"; // Termination array for exit diary writing
 
@@ -36,7 +39,7 @@ void add_entry()
     // Encripting Date_Time
 	for (int i = 0; text[0][i]!='\0'; ++i)
 	{
-		text[0][i]=text[0][i]+3;
+		text[0][i]=text[0][i] ^ 'X';
 	}
 	
 	// --------------------------------------------------------------------<
@@ -55,8 +58,9 @@ void add_entry()
 		// for encription purpose 
 		for (int j = 0;text[i][j]!='\0'; ++j)
 		{
-			text[i][j]= text[i][j] +3 ;
+			text[i][j]= text[i][j] ^ 'X' ;
 		}
+		// xor_encrypt_decrypt(&text[i][0],i,"mysecratekey");
         // reallocating memory for next line
 		if (i >= n - 1)
 		{
@@ -66,11 +70,11 @@ void add_entry()
 	}
 	if (text == NULL)
 	{
-		printf("Error: out of memory ...\n");
+		printf("Error: f memory ...\n");
 		exit(1);
 	}
      // creating a file with name of Date
-	 char filePath[100];
+	char filePath[100];
     sprintf(filePath, "./" DIARY_DIR "/%s.txt", DD_Str);
     fp = fopen(filePath, "a+");
 	// if file not created sucessfully then it will exit code 

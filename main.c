@@ -45,11 +45,23 @@ int main(int argc, char const *argv[])
 		else if (!strcmp(argv[1], "-o"))
 		{
 			Authenticating();
-			open_Diary();	
+			open_Diary("");	
 		}
 		else if (!strcmp(argv[1], "-rm"))
 		{
-			
+			// write it
+		}
+		else if (!strcmp(argv[1], "-random"))
+		{
+			open_Diary("random");
+		}
+		else if (!strcmp(argv[1], "-today"))
+		{
+			open_Diary("today");
+		}
+		else if (!strcmp(argv[1], "-last"))
+		{
+			open_Diary("last");
 		}
 		else if (!strcmp(argv[1], "-set"))
 		{

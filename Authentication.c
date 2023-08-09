@@ -65,7 +65,7 @@ void set_Pass(){
 	
 	char key[20];
 	int i =0;
-    printf("Set your Key\nEnter a Key for diary access within 10 characters\n");
+    printf("\n\tEnter new Password\n\tEnter a Key for diary access within 10 characters\n");
     scanf("%s",key);
     // gets(key);
     // while(key[i]!='\0'){

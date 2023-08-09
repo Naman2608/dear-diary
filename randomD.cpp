@@ -10,7 +10,6 @@
 using namespace std ;
 
 void openDir(map<int,string> &);
-char * randomDiary();
 
 
 // int main(int argc, char const *argv[])
