@@ -26,7 +26,7 @@ char* mainPASS() {
     printf("Enter Password: ");
     fflush(stdout);
 
-    disableEcho();
+   disableEcho();
 
     int i = 0;
     char ch;
@@ -44,7 +44,12 @@ char* mainPASS() {
     enableEcho();
 
     printf("\n");
-    char *pass= &password[0];
+   // i = 0;
+   // while (password[i]!='\0'){ printf("%c",password[i]);
+     //i++;}
+
+ char *pass;
+strcpy(pass,password);
 
     return pass;
 }

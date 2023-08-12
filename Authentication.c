@@ -165,7 +165,7 @@ int mainAuthen(void){
              
              // for (int i = 0; i < strlen(usr_key); ++i)
              // {
-             // 	printf("%c",usr_key[i]);
+             //	printf("%c",pusr_key[i]);
              // }
 
     #endif
